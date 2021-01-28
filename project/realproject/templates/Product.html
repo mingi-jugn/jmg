@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+{% extends "sample1.html" %}
+{% block content %}
+
+<!-- form.as_p 로 <p> 태그로 구분해 간단히 컨트롤들을 자동으로 넣을 수도 있지만 아래의 방법으로 하나씩도 가능하다. -->
+<div style="font-size:larger;font-style:italic;color:blue;width:200;text-align:cneter">
+ <form action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <div >
+            {{ form.subject }}
+        </div>
+        <div>
+            {{ form.price }}
+        </div>
+        <div >
+            {{ form.upload_date }}
+        </div>
+        <div >
+            {{ form.image }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

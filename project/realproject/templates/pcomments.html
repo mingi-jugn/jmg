@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "sample1.html" %}
+
+
+{% block content %}
+
+<div>
+    {{product.subject}}<br>
+    {{ product.price}}<br>
+    <img src="{{ product.image.url }}" alt="사진">
+    {{ product.upload_date }}<br>
+
+
+
+</div>
+
+<div>
+<h3>leave a comment:</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">글쓰기</button>
+</form>
+
+<h3>commment:</h3>
+{% for comment in pcomments %}
+<p>
+    On {{ comment.make_date}}&nbsp
+    <b>{{commment.name}}</b> wrote:
+</p>
+<p>{{ comment.content }}</p>
+<hr>
+{% endfor %}
+</div>
+{% endblock %}
